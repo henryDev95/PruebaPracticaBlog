@@ -61,7 +61,7 @@ export default {
       try {
         const res = await api.post('/register', this.form)
         localStorage.setItem('token', res.data.token)
-
+        localStorage.setItem('user', JSON.stringify(res.data.user))
         this.$store.dispatch('login')
 
         this.$router.push('/publications')

@@ -63,6 +63,7 @@ export default {
       try {
         const res = await api.post('/login', this.form)
         localStorage.setItem('token', res.data.token)
+        localStorage.setItem('user', JSON.stringify(res.data.user))
         this.$store.dispatch('login')
         router.push('/publications')
       } catch (err) {
